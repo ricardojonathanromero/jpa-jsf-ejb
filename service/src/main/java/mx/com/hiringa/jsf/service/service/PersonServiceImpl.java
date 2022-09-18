@@ -9,25 +9,20 @@ import mx.com.hiringa.jsf.service.domain.Person;
 
 import java.util.List;
 
-@Stateless
-public class PersonServiceImpl implements PersonServiceRemote, PersonService {
+@Stateless public class PersonServiceImpl implements PersonServiceRemote, PersonService {
     @Inject PersonDao repo;
 
     @Resource private SessionContext context;
 
-    @Override
-    public List<Person> ListPersons() { return repo.findAll(); }
+    @Override public List<Person> ListPersons() { return repo.findAll(); }
 
-    @Override
-    public Person FindPersonById(Person person) { return repo.findPersonById(person); }
+    @Override public Person FindPersonById(Person person) { return repo.findPersonById(person); }
 
-    @Override
-    public Person FindPersonByEmail(Person person) {
+    @Override public Person FindPersonByEmail(Person person) {
         return repo.findPersonByEmail(person);
     }
 
-    @Override
-    public void AddPerson(Person person) {
+    @Override public void AddPerson(Person person) {
         repo.createPerson(person);
     }
 
@@ -41,8 +36,5 @@ public class PersonServiceImpl implements PersonServiceRemote, PersonService {
         }
     }
 
-    @Override
-    public void DeletePerson(Person person) {
-        repo.deletePerson(person);
-    }
+    @Override public void DeletePerson(Person person) { repo.deletePerson(person); }
 }
